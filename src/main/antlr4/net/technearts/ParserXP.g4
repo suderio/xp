@@ -7,9 +7,11 @@ prog      : line* EOF;
 line      : expression SEMICOLON;
 
 expression  : expression ID expression                                          # callBinaryFuncOp
+            | expression LCURBR expression RCURBR expression                    # implicitCallBinaryFuncOp
             | ID expression                                                     # callUnaryFuncOp
+            | LCURBR expression RCURBR expression                               # implicitCallUnaryFuncOp
+            | LCURBR expression RCURBR                                          # operatorExpr
             | ID ASSIGN expression                                              # assignmentOp
-
             | MINUS expression                                                  # minusOp
 
             | <assoc=right>left=expression operator=EXP right=expression        # exponentiationOp

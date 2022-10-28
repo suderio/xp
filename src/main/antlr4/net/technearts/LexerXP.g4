@@ -3,10 +3,12 @@ lexer grammar LexerXP;
 // Whitespace
 NEWLINE            : '\r\n' | '\r' | '\n' ;
 WS                 : [\r\n\t ]+ -> skip ;
-COMMENT            : '#' [.]*? NEWLINE -> skip  ;
+COMMENT            : '#' [.]*? NEWLINE -> channel(HIDDEN)  ;
 
 // Keywords
 THIS                : 'this' ;
+LEFT                : 'left' ;
+RIGHT               : 'right';
 TRUE                : 'true' ;
 FALSE               : 'false';
 NULL                : 'null' ;
@@ -24,6 +26,8 @@ LPAREN             : '(' ;
 RPAREN             : ')' ;
 LBRACK             : '[' ;
 RBRACK             : ']' ;
+LCURBR             : '{' ;
+RCURBR             : '}' ;
 ELIPSIS            :'...';
 RANGE              : '..';
 DEREF              : '.' ;

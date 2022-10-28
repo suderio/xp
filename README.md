@@ -33,10 +33,10 @@ result : 1 + 1
 
 ### Defining Operations
 
-Using the left ($) and right (?) references.
+Using the left and right references.
 
 ```
-fact : [0: 1, 1: 1, ?: ? * this (? - 1)] . ?
+fact : {[true: 1, false: right * this (right - 1)] . right <= 1}
 <UnaryOperation>
 
 fact 2
@@ -44,5 +44,9 @@ fact 2
 [0: 1, 1: 1, 2: 2 * [0: 1, 1: 1, 1: 1 * this (1 - 1)] . 1] . 2
 [0: 1, 1: 1, 2: 2 * 1] . 2
 [0: 1, 1: 1, 2: 2] . 2
+2
+
+succ: {right + 1}
+succ 1
 2
 ```
