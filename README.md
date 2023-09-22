@@ -45,6 +45,7 @@ succ 1
 ```
 
 ## Basic Operands
+
 ```
 Arithm: + - * / ^ % ( ) 
 Comp: < > <= >= = <> # lt gt le ge eq ne
