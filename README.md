@@ -37,7 +37,10 @@ Using the left and right references.
 
 ```
 fact: [true: 1, false: right * (this (right - 1))] | right <= 1
-<UnaryOperation>
+fact 3
+6
+
+fact
 
 succ: right + 1
 succ 1
@@ -68,4 +71,6 @@ List: [ ] , : "
 ~[] = true
 
 "string" = ['s', 't', 'r', 'i', 'n', 'g']
+'s' + 1 = 't'
+'s' * 2 = ?
 ```
