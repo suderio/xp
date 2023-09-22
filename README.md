@@ -45,7 +45,7 @@ succ 1
 ```
 
 ## Basic Operands
-
+```
 Arithm: + - * / ^ % ( ) 
 Comp: < > <= >= = <> # lt gt le ge eq ne
 Logic: | || & && ~ # or or! and and! not
@@ -67,3 +67,4 @@ List: [ ] , : "
 ~[] = ?
 
 "string" = ['s', 't', 'r', 'i', 'n', 'g']
+```
