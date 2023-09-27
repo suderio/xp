@@ -1,5 +1,6 @@
 package net.technearts.xp
 
+import net.technearts.ParserXP
 import net.technearts.ParserXP.*
 import net.technearts.ParserXPBaseListener
 import org.antlr.v4.runtime.ParserRuleContext
@@ -10,7 +11,7 @@ import org.antlr.v4.runtime.tree.TerminalNode
 class ListenerXP : ParserXPBaseListener() {
     var integerValues = ParseTreeProperty<Int>()
     var stringValues = ParseTreeProperty<String>()
-    var integerUnaryFunction = ParseTreeProperty<(Int) -> Int>()
+    var integerUnaryFunction = ParseTreeProperty<(ParserRuleContext) -> Int>()
     override fun enterCallUnaryFuncOp(ctx: CallUnaryFuncOpContext) {
         super.enterCallUnaryFuncOp(ctx)
     }
@@ -90,7 +91,7 @@ class ListenerXP : ParserXPBaseListener() {
 
     override fun exitIntLiteral(ctx: IntLiteralContext) {
         val value = when (val text = ctx.INTLIT().text) {
-            "right" -> null
+            "right" -> {(ctx: ParserXP.IntLiteralContext) -> Integer.valueOf(ctx.INTLIT().text)}
             "left" -> null
             else -> Integer.valueOf(text)
         }
